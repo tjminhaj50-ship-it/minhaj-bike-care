@@ -209,6 +209,70 @@ footer span {
     min-height: 420px;
     padding: 50px 7%;
   }
+}/* PREMIUM HOMEPAGE UPGRADE */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px rgba(245,166,35,0.3);
+}
+
+nav a {
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #f5a623;
+    text-shadow: 0 0 10px #f5a623;
+}
+
+.hero {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero > div {
+    max-width: 650px;
+}
+
+.hero h1 {
+    text-shadow: 2px 3px 12px rgba(0,0,0,0.8);
+}
+
+.hero p {
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg,#ffd166,#f5a623);
+    color: #111;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 20px rgba(245,166,35,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(245,166,35,0.4);
+}
+
+@media(max-width:650px) {
+    .hero h1 {
+        font-size: 38px;
+    }
+}
 }
 </style>
 </head>

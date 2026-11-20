@@ -362,11 +362,69 @@ nav a:hover {
   </div>
 </section>
 
-<section class="booking" id="booking">
-  <h2 class="section-title">BOOK YOUR <span>SERVICE</span></h2>
-  <p>আপনার বাইকের সার্ভিসিং সম্পর্কে জানতে আমাদের সঙ্গে যোগাযোগ করুন।</p>
-  <a href="#services" class="btn">View Services</a>
+
+<section id="booking" style="background:#101010;padding:60px 8%;color:white;">
+  <div style="max-width:600px;margin:auto;">
+    <h2 style="text-align:center;color:#f5b400;">BOOK YOUR SERVICE</h2>
+    <p style="text-align:center;color:#bbb;margin:15px 0 30px;">Book Your Motorcycle Service Online</p>
+
+    <form id="bookingForm">
+      <input id="name" placeholder="Your Name" required>
+      <input id="phone" type="tel" placeholder="Mobile Number" required>
+      <input id="bike" placeholder="Bike Model" required>
+
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option>Engine Servicing</option>
+        <option>Engine Oil Change</option>
+        <option>Brake Servicing</option>
+        <option>Bike Washing</option>
+      </select>
+
+      <input id="date" type="date" required>
+      <button type="submit">BOOK NOW</button>
+    </form>
+  </div>
 </section>
+
+<style>
+#bookingForm input,
+#bookingForm select {
+  display:block;
+  width:100%;
+  padding:15px;
+  margin:14px 0;
+  background:#222;
+  color:white;
+  border:1px solid #444;
+  border-radius:5px;
+}
+#bookingForm button {
+  width:100%;
+  padding:15px;
+  background:#f5b400;
+  color:black;
+  border:0;
+  font-weight:bold;
+  border-radius:5px;
+}
+</style>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const message = "MINHAJ BIKE CARE BOOKING\n" +
+    "Name: " + document.getElementById("name").value + "\n" +
+    "Phone: " + document.getElementById("phone").value + "\n" +
+    "Bike: " + document.getElementById("bike").value + "\n" +
+    "Service: " + document.getElementById("service").value + "\n" +
+    "Date: " + document.getElementById("date").value;
+
+  window.open("https://wa.me/8801873161686?text=" + encodeURIComponent(message),"_blank");
+});
+</script>
+
 
 <footer>
   <h3>MINHAJ <span>BIKE CARE</span></h3>

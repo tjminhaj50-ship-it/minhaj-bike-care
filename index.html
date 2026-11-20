@@ -460,5 +460,81 @@ document.getElementById("bookingForm").addEventListener("submit",function(e){
 }
 </style>
 
+<section id="reviews" style="background:#101010;color:white;padding:60px 8%;">
+  <div style="max-width:650px;margin:auto;">
+    <h2 style="text-align:center;color:#f5b400;">CUSTOMER REVIEWS</h2>
+    <p style="text-align:center;color:#bbb;margin:12px 0 30px;">Share Your Experience</p>
+
+    <form id="reviewForm">
+      <input id="reviewName" placeholder="Your Name" required>
+
+      <select id="reviewRating" required>
+        <option value="">Select Rating</option>
+        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+        <option value="4">⭐⭐⭐⭐ Very Good</option>
+        <option value="3">⭐⭐⭐ Good</option>
+        <option value="2">⭐⭐ Fair</option>
+        <option value="1">⭐ Poor</option>
+      </select>
+
+      <textarea id="reviewText" placeholder="Write your review..." required></textarea>
+
+      <button type="submit">SUBMIT REVIEW</button>
+    </form>
+
+    <div id="reviewList"></div>
+  </div>
+</section>
+
+<style>
+#reviewForm input,#reviewForm select,#reviewForm textarea{
+  display:block;width:100%;padding:14px;margin:14px 0;
+  background:#222;color:white;border:1px solid #444;
+  border-radius:5px;
+}
+#reviewForm textarea{min-height:100px}
+#reviewForm button{
+  width:100%;padding:14px;background:#f5b400;
+  color:black;border:0;font-weight:bold;border-radius:5px;
+}
+.review-card{
+  background:#1c1c1c;padding:18px;margin-top:18px;
+  border-radius:7px;border:1px solid #333;
+}
+.review-card h3{color:#f5b400}
+.review-stars{color:#f5b400}
+</style>
+
+<script>
+const reviewForm = document.getElementById("reviewForm");
+const reviewList = document.getElementById("reviewList");
+
+reviewForm.addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("reviewName").value;
+  const rating = Number(document.getElementById("reviewRating").value);
+  const review = document.getElementById("reviewText").value;
+
+  const card = document.createElement("div");
+  card.className = "review-card";
+
+  const heading = document.createElement("h3");
+  heading.textContent = name;
+
+  const stars = document.createElement("p");
+  stars.className = "review-stars";
+  stars.textContent = "★".repeat(rating);
+
+  const comment = document.createElement("p");
+  comment.textContent = review;
+
+  card.append(heading,stars,comment);
+  reviewList.prepend(card);
+
+  reviewForm.reset();
+});
+</script>
+
 </body>
   </html>
